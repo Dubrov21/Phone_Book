@@ -4,22 +4,22 @@ import java.util.Map;
 
 public class Main {
     // Добавляем номера в книгу
-    public static void addNumber(String key, int value, Map<String, ArrayList<Integer>> map){
+    public static void addNumber(String key, long value, Map<String, ArrayList<Long>> map){
         if (map.containsKey(key)) {
             map.get(key).add(value);
         }
         else {
-            ArrayList<Integer> list = new ArrayList<>();
+            ArrayList<Long> list = new ArrayList<>();
             list.add(value);
             map.put(key, list);
         }
     }
 
     // Печатаем список контактов
-    public static void printBook(Map<String, ArrayList<Integer>> map){
+    public static void printBook(Map<String, ArrayList<Long>> map){
         for (var item : map.entrySet()) {
             String phones = "";
-            for(int el: item.getValue()){
+            for(long el: item.getValue()){
                 phones = phones + el + ", ";
             }
             System.out.printf("%s: %s \n", item.getKey(), phones);
@@ -29,12 +29,12 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
-        Map<String, ArrayList<Integer>> bookPhone = new HashMap<>();
-        addNumber("Ivanov", 123, bookPhone);
-        addNumber("Ivanov", 1234, bookPhone);
-        addNumber("Petrov", 546585, bookPhone);
-        addNumber("Ivanov", 12356233, bookPhone);
-        addNumber("Petrov", 787897, bookPhone);
+        Map<String, ArrayList<Long>> bookPhone = new HashMap<>();
+        addNumber("Mariska Veresh", 3725, bookPhone);
+        addNumber("Agnieska", 8934, bookPhone);
+        addNumber("Agnieska", 978546585, bookPhone);
+        addNumber("Northrop", 812356233, bookPhone);
+        addNumber("Northrop", 787897768, bookPhone);
         printBook(bookPhone);
     }
 }
